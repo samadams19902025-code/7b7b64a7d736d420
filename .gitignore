@@ -2,5 +2,6 @@ assets/*
 !assets/studio.webp
 !assets/logo_haniel_simbolo.png
 !assets/matteo.jpg
+!assets/favicon.png
 *.py
 __pycache__/
