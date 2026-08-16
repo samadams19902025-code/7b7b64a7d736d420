@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haniel Hair Atelier · Parrucchiere a Cagliari</title>
+<meta name="description" content="Haniel Hair Atelier, Cagliari. Hair, Color, Beauty. Un atelier dedicato ai tuoi capelli: cura autentica e attenzione discreta, su appuntamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tan:#D2DABB;        /* sfondo salvia */
+  --oro:#D4AF37;        /* accento */
+  --caffe:#2A1810;      /* testo */
+  --romantico:#FEFDFD;  /* bianco */
+  --tan-scuro:#c3ccaa;
+  --caffe-soft:#4a3226;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Lora',Georgia,serif;
+  color:var(--caffe);
+  background:var(--romantico);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.12}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'Lora',serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:22px 0;transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
+}
+header.solid{background:rgba(254,253,253,.94);padding:14px 0;box-shadow:0 1px 0 rgba(42,24,16,.08);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:600;letter-spacing:.02em;color:var(--romantico);transition:color .4s}
+.brand-logo{height:42px;width:auto;flex:0 0 auto;transition:height .4s}
+header.solid .brand-logo{height:34px}
+header.solid .brand .mark{color:var(--caffe)}
+.menu{display:flex;align-items:center;gap:34px}
+.menu a.link{font-size:.9rem;letter-spacing:.06em;color:var(--romantico);position:relative;transition:color .4s;padding:4px 0}
+header.solid .menu a.link{color:var(--caffe)}
+.menu a.link::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--oro);transition:width .35s}
+.menu a.link:hover::after{width:100%}
+.btn{
+  display:inline-block;font-family:'Lora',serif;font-size:.9rem;letter-spacing:.05em;
+  padding:13px 30px;border-radius:50px;transition:all .3s ease;cursor:pointer;border:1px solid transparent;
+}
+.btn-oro{background:var(--oro);color:var(--caffe);font-weight:500}
+.btn-oro:hover{background:var(--caffe);color:var(--romantico)}
+.btn-ghost{border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:var(--romantico);color:var(--caffe);border-color:var(--romantico)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
+.burger span{width:26px;height:2px;background:var(--romantico);transition:.3s}
+header.solid .burger span{background:var(--caffe)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--romantico)}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(42,24,16,.58) 0%,rgba(42,24,16,.32) 30%,rgba(42,24,16,.50) 60%,rgba(42,24,16,.94) 100%);}
+.hero-inner{padding-bottom:9vh;padding-top:140px}
+.hero .eyebrow{color:var(--oro);margin-bottom:22px}
+.hero h1{font-size:clamp(2.9rem,7vw,5.6rem);font-weight:600;letter-spacing:-.01em;max-width:14ch}
+.hero .sub{font-size:clamp(1rem,1.5vw,1.18rem);max-width:46ch;margin-top:26px;color:rgba(254,253,253,.92);font-style:italic}
+.hero .cta-row{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint::after{content:"";width:1px;height:38px;background:var(--oro);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Sezioni ---------- */
+section{position:relative}
+.sec-tan{background:var(--tan)}
+.sec-pad{padding:clamp(70px,11vw,130px) 0}
+.kicker{color:var(--oro);margin-bottom:18px}
+.h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:600;letter-spacing:-.01em}
+.lead{font-size:1.12rem;max-width:60ch;margin-top:22px;color:var(--caffe-soft)}
+
+/* Atelier */
+.atelier-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,6vw,80px);align-items:center}
+.atelier-copy p+p{margin-top:18px}
+.atelier-copy .lead{margin-top:0}
+.quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--caffe);border-left:2px solid var(--oro);padding-left:22px;margin-top:34px;line-height:1.4}
+.phone{position:relative;justify-self:center;width:min(300px,78vw);aspect-ratio:9/19;border-radius:34px;background:var(--caffe);padding:11px;box-shadow:0 30px 70px -25px rgba(42,24,16,.55);}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:24px;display:block}
+.phone .notch{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:96px;height:22px;background:var(--caffe);border-radius:0 0 14px 14px;z-index:2}
+.phone-cap{text-align:center;margin-top:18px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caffe-soft)}
+
+/* Servizi */
+.serv-head{max-width:60ch}
+.serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(30px,4vw,56px);margin-top:60px}
+.serv-cat h3{font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;font-family:'Lora',serif;font-weight:500;color:var(--oro);padding-bottom:14px;border-bottom:1px solid rgba(42,24,16,.15);margin-bottom:8px}
+.serv-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px dotted rgba(42,24,16,.14)}
+.serv-item:last-child{border-bottom:0}
+.serv-item .name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:500}
+.serv-item .dur{font-size:.82rem;color:var(--caffe-soft);display:block;font-style:italic;margin-top:2px}
+.serv-item .price{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--oro);white-space:nowrap;font-weight:600}
+.serv-primary{margin-top:52px}
+.serv-primary-title{font-size:1rem;letter-spacing:.16em;text-transform:uppercase;font-family:'Lora',serif;font-weight:500;color:var(--oro);margin-bottom:18px}
+.primary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(30px,4vw,56px)}
+.acc{margin-top:20px;border-top:1px solid rgba(42,24,16,.16)}
+.acc-item{border-bottom:1px solid rgba(42,24,16,.16)}
+.acc-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-family:'Lora',serif;font-size:1.02rem;letter-spacing:.14em;text-transform:uppercase;color:var(--caffe);font-weight:500;transition:color .25s}
+.acc-item summary:hover{color:var(--oro)}
+.acc-item summary::-webkit-details-marker{display:none}
+.acc-item summary::after{content:"+";font-family:'Lora',serif;font-size:1.5rem;line-height:1;color:var(--oro)}
+.acc-item[open] summary::after{content:"\2013"}
+.acc-body{padding:0 0 22px}
+@media(max-width:860px){.primary-grid{grid-template-columns:1fr}}
+.serv-note{margin-top:44px;font-size:.9rem;color:var(--caffe-soft);font-style:italic;text-align:center}
+
+/* Contatti */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:stretch}
+.info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(254,253,253,.16)}
+.info-row .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);flex:0 0 92px;padding-top:3px}
+.info-row .val{font-size:1.05rem}
+.orari{display:grid;grid-template-columns:1fr auto;gap:6px 20px;margin-top:6px}
+.orari .g{color:var(--caffe-soft)}
+.orari .h{text-align:right}
+.orari .closed{color:#a08e6a}
+.wa-card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:rgba(254,253,253,.05);border:1px solid rgba(212,175,55,.28);border-radius:6px;padding:clamp(28px,4vw,48px)}
+.sec-caffe{background:var(--caffe);color:var(--romantico)}
+.sec-caffe .h2,.sec-caffe .info-row .val{color:var(--romantico)}
+.sec-caffe .orari .g{color:rgba(254,253,253,.6)}
+.cta-band{text-align:center;margin-top:70px}
+.cta-band .btn{margin:8px}
+
+/* Footer */
+footer{background:var(--caffe);color:rgba(254,253,253,.7);padding:54px 0 30px;border-top:1px solid rgba(212,175,55,.22)}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.foot-brand .mark{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--romantico)}
+.foot-brand p{margin-top:10px;font-size:.92rem;max-width:34ch}
+.foot-links{display:flex;flex-direction:column;gap:8px;font-size:.92rem}
+.foot-links a:hover{color:var(--oro)}
+.foot-bottom{margin-top:38px;padding-top:22px;border-top:1px solid rgba(254,253,253,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;color:rgba(254,253,253,.5)}
+.foot-bottom a{color:var(--oro)}
+.fb-logo{font-family:'Poppins',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;text-transform:lowercase}
+
+/* ---------- Mobile ---------- */
+@media(max-width:860px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--caffe);flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);padding:40px}
+  .menu.open{transform:none}
+  .menu a.link{color:var(--romantico);font-size:1.15rem}
+  header.solid .menu a.link{color:var(--romantico)}
+  .burger{display:flex}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .wrap{padding:0 20px}
+  .brand .mark{font-size:1.05rem}
+  .brand-logo{height:36px}
+  .hero-inner{padding-bottom:12vh}
+  .primary-grid{grid-template-columns:1fr}
+  .cta-band .btn{display:block;width:100%;margin:10px 0}
+  .acc-item summary{font-size:.95rem;letter-spacing:.1em}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img class="brand-logo" src="assets/logo_haniel_simbolo.png" alt="Haniel"><span class="mark">Haniel Hair Atelier</span></a>
+    <nav class="menu" id="menu">
+      <a class="link" href="#atelier">L'Atelier</a>
+      <a class="link" href="#servizi">Servizi</a>
+      <a class="link" href="#contatti">Contatti</a>
+      <a class="btn btn-oro" href="#">Prenota</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/studio.webp" alt="Interno di Haniel Hair Atelier, Cagliari"></div>
+  <div class="wrap hero-inner">
+    <h1>Un atelier per<br>i tuoi capelli.</h1>
+    <p class="sub">In Via San Lucifero, nel cuore di Cagliari.<br>Colore, taglio e cura su appuntamento con il tempo e l'ascolto che meriti.</p>
+    <div class="cta-row">
+      <a class="btn btn-oro" href="#">Prenota il tuo appuntamento</a>
+      <a class="btn btn-ghost" href="tel:+393519440379">Chiama l'atelier</a>
+    </div>
+  </div>
+</section>
+
+<!-- ATELIER -->
+<section class="sec-tan sec-pad" id="atelier">
+  <div class="wrap reveal">
+    <p class="eyebrow kicker">L'Atelier</p>
+    <h2 class="h2">Un salone che si prende cura di te.</h2>
+    <p class="lead">Haniel è un hair salon nel cuore di Cagliari, in Via Lucifero, dal 2022. Il titolare Matteo Lecca e il suo staff si prendono cura di ogni cliente con passione e professionalità: si ascolta prima di proporre, per far sentire ognuno a proprio agio e valorizzarne la bellezza.</p>
+    <p style="margin-top:18px;max-width:64ch">In un ambiente accogliente e moderno lavoriamo su piega, taglio, colore, effetti luce e trattamenti del capello: tecniche ricercate e di tendenza, sempre al servizio del risultato più naturale per te.</p>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="sec-pad" id="servizi">
+  <div class="wrap">
+    <div class="serv-head reveal">
+      <p class="eyebrow kicker">Servizi</p>
+      <h2 class="h2">Il listino</h2>
+      <p class="lead">Una selezione dei trattamenti dell'atelier. Ogni percorso è personalizzato in consulenza: i tempi e i dettagli si definiscono insieme, in base ai tuoi capelli.</p>
+    </div>
+    <!-- I piu richiesti: sempre visibili -->
+    <div class="serv-primary reveal">
+      <h3 class="serv-primary-title">I più richiesti</h3>
+      <div class="primary-grid">
+        <div class="serv-item"><div><span class="name">Colore Inoa</span><span class="dur">1h 45min · senza ammoniaca</span></div><span class="price">70€</span></div>
+        <div class="serv-item"><div><span class="name">Taglio e Piega, capelli corti</span><span class="dur">45min</span></div><span class="price">da 47€</span></div>
+        <div class="serv-item"><div><span class="name">Ricostruzione Molecolare Premiere</span><span class="dur">1h</span></div><span class="price">65€</span></div>
+        <div class="serv-item"><div><span class="name">Styling</span><span class="dur">15min</span></div><span class="price">20€</span></div>
+        <div class="serv-item"><div><span class="name">Taglio Frangia</span><span class="dur">15min</span></div><span class="price">10€</span></div>
+        <div class="serv-item"><div><span class="name">Balayage</span><span class="dur">3h · schiaritura su misura</span></div><span class="price">su richiesta</span></div>
+      </div>
+    </div>
+
+    <!-- Tutte le categorie in tendine (chiuse di default) -->
+    <div class="reveal" style="margin-top:56px">
+      <h3 class="serv-primary-title">Tutti i servizi</h3>
+      <div class="acc">
+        <details class="acc-item"><summary>Colore</summary><div class="acc-body">
+          <div class="serv-item"><div><span class="name">Colore Inoa</span><span class="dur">1h 45min · senza ammoniaca</span></div><span class="price">70€</span></div>
+          <div class="serv-item"><div><span class="name">Colore</span><span class="dur">1h 45min</span></div><span class="price">65€</span></div>
+          <div class="serv-item"><div><span class="name">Color Matching</span><span class="dur">1h 45min · colore su misura</span></div><span class="price">90€</span></div>
+          <div class="serv-item"><div><span class="name">Gloss e Tonalizzanti</span><span class="dur">1h 15min</span></div><span class="price">60€</span></div>
+        </div></details>
+        <details class="acc-item"><summary>Colpi di sole & Schiariture</summary><div class="acc-body">
+          <div class="serv-item"><div><span class="name">Balayage</span><span class="dur">3h · schiaritura su misura</span></div><span class="price">su richiesta</span></div>
+          <div class="serv-item"><div><span class="name">Acconciatura</span><span class="dur">1h · eventi e cerimonie</span></div><span class="price">su richiesta</span></div>
+        </div></details>
+        <details class="acc-item"><summary>Taglio & Piega</summary><div class="acc-body">
+          <div class="serv-item"><div><span class="name">Taglio e Piega, capelli corti</span><span class="dur">45min</span></div><span class="price">da 47€</span></div>
+          <div class="serv-item"><div><span class="name">Taglio e Piega, capelli lunghi</span><span class="dur">1h 15min</span></div><span class="price">da 57€</span></div>
+          <div class="serv-item"><div><span class="name">Taglio Frangia</span><span class="dur">15min</span></div><span class="price">10€</span></div>
+          <div class="serv-item"><div><span class="name">Piega</span><span class="dur">45min</span></div><span class="price">30€</span></div>
+          <div class="serv-item"><div><span class="name">Styling</span><span class="dur">15min</span></div><span class="price">20€</span></div>
+        </div></details>
+        <details class="acc-item"><summary>Uomo</summary><div class="acc-body">
+          <div class="serv-item"><div><span class="name">Taglio Uomo</span><span class="dur">30min</span></div><span class="price">30€</span></div>
+          <div class="serv-item"><div><span class="name">Taglio Uomo, capelli lunghi</span><span class="dur">45min</span></div><span class="price">40€</span></div>
+        </div></details>
+        <details class="acc-item"><summary>Trattamenti cute & capello</summary><div class="acc-body">
+          <div class="serv-item"><div><span class="name">Head Spa Ricostruzione Profonda & Piega</span><span class="dur">1h 15min</span></div><span class="price">90€</span></div>
+          <div class="serv-item"><div><span class="name">Ricostruzione Molecolare Premiere</span><span class="dur">1h</span></div><span class="price">65€</span></div>
+          <div class="serv-item"><div><span class="name">Kérastase Trattamento Premier</span><span class="dur">30min</span></div><span class="price">50€</span></div>
+          <div class="serv-item"><div><span class="name">Laminazione Capelli</span><span class="dur">30min</span></div><span class="price">50€</span></div>
+        </div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="sec-caffe sec-pad" id="contatti">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <p class="eyebrow" style="color:var(--oro)">Contatti</p>
+      <h2 class="h2" style="margin-bottom:28px">Ti aspettiamo in atelier.</h2>
+      <p style="font-size:1.15rem;margin-bottom:6px">Via S. Lucifero, 47 · 09125 Cagliari (CA)</p>
+      <p style="font-size:1.15rem;margin-bottom:34px"><a href="tel:+393519440379" style="color:var(--oro)">+39 351 944 0379</a></p>
+      <div class="orari" style="max-width:330px;margin:0 auto">
+        <span class="g">Lunedì</span><span class="h closed">Chiuso</span>
+        <span class="g">Martedì</span><span class="h">10:00 – 18:30</span>
+        <span class="g">Mercoledì</span><span class="h">10:00 – 18:00</span>
+        <span class="g">Giovedì</span><span class="h">10:00 – 18:30</span>
+        <span class="g">Venerdì</span><span class="h">10:00 – 18:30</span>
+        <span class="g">Sabato</span><span class="h">10:00 – 17:00</span>
+        <span class="g">Domenica</span><span class="h closed">Chiuso</span>
+      </div>
+    </div>
+    <div class="cta-band reveal">
+      <a class="btn btn-oro" href="#">Prenota online</a>
+      <a class="btn btn-ghost" href="tel:+393519440379" style="color:var(--romantico)">Chiama</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <img src="assets/logo_haniel_simbolo.png" alt="Haniel Hair Atelier" style="height:110px;width:auto">
+      <div class="mark" style="margin-top:16px">Haniel Hair Atelier</div>
+    </div>
+    <div class="foot-links">
+      <a href="#atelier">L'Atelier</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#">Prenota</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Haniel Hair Atelier · Tutti i diritti riservati</span>
+    <span>Sito realizzato da <a href="#" class="fb-logo">facilebrand</a></span>
+  </div>
+</footer>
+
+<script>
+// header solid on scroll
+const hd=document.getElementById('hd');
+const onScroll=()=>hd.classList.toggle('solid',window.scrollY>60);
+window.addEventListener('scroll',onScroll);onScroll();
+// mobile menu
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{menu.classList.toggle('open');burger.classList.toggle('open')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('open')}));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

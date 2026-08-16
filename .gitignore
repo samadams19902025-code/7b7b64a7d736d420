@@ -1,0 +1,5 @@
+assets/*
+!assets/studio.webp
+!assets/logo_haniel_simbolo.png
+*.py
+__pycache__/
