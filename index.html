@@ -12,11 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --tan:#D2DABB;        /* sfondo salvia */
+  --tan:#819b80;        /* sfondo salvia */
   --oro:#D4AF37;        /* accento */
   --caffe:#2A1810;      /* testo */
   --romantico:#FEFDFD;  /* bianco */
-  --tan-scuro:#c3ccaa;
+  --tan-scuro:#6f8770;
   --caffe-soft:#4a3226;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -58,6 +58,8 @@ header.solid .menu a.link{color:var(--caffe)}
 }
 .btn-oro{background:var(--oro);color:var(--caffe);font-weight:500}
 .btn-oro:hover{background:var(--caffe);color:var(--romantico)}
+.btn-verde{background:var(--tan);color:var(--caffe);font-weight:500}
+.btn-verde:hover{background:var(--caffe);color:var(--romantico)}
 .btn-ghost{border-color:currentColor;background:transparent}
 .btn-ghost:hover{background:var(--romantico);color:var(--caffe);border-color:var(--romantico)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
@@ -134,6 +136,9 @@ section{position:relative}
 
 /* Contatti */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:stretch}
+.contact-photo{width:100%;height:100%;min-height:440px;max-height:640px;object-fit:cover;border-radius:8px;box-shadow:0 30px 70px -28px rgba(0,0,0,.75);border:1px solid rgba(212,175,55,.24)}
+.contact-info{align-self:center}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr;text-align:center}.contact-photo{min-height:0;max-height:440px}.contact-info .orari{margin-left:auto;margin-right:auto}}
 .info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(254,253,253,.16)}
 .info-row .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);flex:0 0 92px;padding-top:3px}
 .info-row .val{font-size:1.05rem}
@@ -203,7 +208,7 @@ footer{background:var(--caffe);color:rgba(254,253,253,.7);padding:54px 0 30px;bo
     <p class="sub">In Via San Lucifero, nel cuore di Cagliari.<br>Colore, taglio e cura su appuntamento con il tempo e l'ascolto che meriti.</p>
     <div class="cta-row">
       <a class="btn btn-oro" href="#">Prenota il tuo appuntamento</a>
-      <a class="btn btn-ghost" href="tel:+393519440379">Chiama l'atelier</a>
+      <a class="btn btn-verde" href="tel:+393519440379">Chiama l'atelier</a>
     </div>
   </div>
 </section>
@@ -299,12 +304,14 @@ footer{background:var(--caffe);color:rgba(254,253,253,.7);padding:54px 0 30px;bo
 <!-- CONTATTI -->
 <section class="sec-caffe sec-pad" id="contatti">
   <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="contact-grid reveal">
+      <img class="contact-photo" src="assets/vetrina.webp" alt="La vetrina di Haniel Hair Atelier in Via S. Lucifero 47, Cagliari">
+      <div class="contact-info">
       <p class="eyebrow" style="color:var(--oro)">Contatti</p>
-      <h2 class="h2" style="margin-bottom:28px">Ti aspettiamo in atelier.</h2>
+      <h2 class="h2" style="margin-bottom:24px">Ti aspettiamo in atelier.</h2>
       <p style="font-size:1.15rem;margin-bottom:6px">Via S. Lucifero, 47 · 09125 Cagliari (CA)</p>
-      <p style="font-size:1.15rem;margin-bottom:34px"><a href="tel:+393519440379" style="color:var(--oro)">+39 351 944 0379</a></p>
-      <div class="orari" style="max-width:330px;margin:0 auto">
+      <p style="font-size:1.15rem;margin-bottom:30px"><a href="tel:+393519440379" style="color:var(--oro)">+39 351 944 0379</a></p>
+      <div class="orari" style="max-width:330px">
         <span class="g">Lunedì</span><span class="h closed">Chiuso</span>
         <span class="g">Martedì</span><span class="h">10:00 – 18:30</span>
         <span class="g">Mercoledì</span><span class="h">10:00 – 18:00</span>
@@ -312,6 +319,7 @@ footer{background:var(--caffe);color:rgba(254,253,253,.7);padding:54px 0 30px;bo
         <span class="g">Venerdì</span><span class="h">10:00 – 18:30</span>
         <span class="g">Sabato</span><span class="h">10:00 – 17:00</span>
         <span class="g">Domenica</span><span class="h closed">Chiuso</span>
+      </div>
       </div>
     </div>
     <div class="cta-band reveal">
